@@ -17,7 +17,7 @@ The latest stable release of JuliQAOA can be installed using the Julia package m
 ## Usage
 
 The core functionality of JuliQAOA is to take in a set of angles 
-$\{\beta_i, \gamma_i\}$, a mixer $H_M$, and a cost function $H_C$, and return the 
+${\beta_i, \gamma_i}$, a mixer $H_M$, and a cost function $H_C$, and return the 
 statevector
 
 ```math
