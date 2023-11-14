@@ -18,3 +18,7 @@ makedocs(
         "Examples" => "examples.md"
     ]
 )
+
+deploydocs(
+    repo = "github.com/lanl/JuliQAOA.jl.git",
+)
