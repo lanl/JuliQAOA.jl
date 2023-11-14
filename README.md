@@ -17,7 +17,7 @@ The latest stable release of JuliQAOA can be installed using the Julia package m
 ## Usage
 
 The core functionality of JuliQAOA is to take in a set of angles 
-${\beta_i, \gamma_i}$, a mixer $H_M$, and a cost function $H_C$, and return the 
+$[\beta_i, \gamma_i]$, a mixer $H_M$, and a cost function $H_C$, and return the 
 statevector
 
 ```math
@@ -33,7 +33,8 @@ using JuliQAOA, Graphs
 n = 6
 
 # 3 rounds with random angles
-p = 3 
+p = 3
+# angles[1:p] = betas, angles[p+1:end] = gammas
 angles = rand(2*p)
 
 # transverse field mixer
