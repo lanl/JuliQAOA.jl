@@ -4,20 +4,20 @@ A fast, flexible package for simulating the Quantum Alternating Operator Ansatz 
 
 ## Documentation
 
-Please see our full documentation [here](https://lanl.github.io/JuliQAOA/stable/).
+Please see our full documentation [here](https://lanl.github.io/JuliQAOA.jl/stable/).
 
 ## Installation
 
 The latest stable release of JuliQAOA can be installed using the Julia package manager with
 
 ```julia
-] add https://github.com/lanl/JuliQAOA
+] add https://github.com/lanl/JuliQAOA.jl
 ```
 
 ## Usage
 
 The core functionality of JuliQAOA is to take in a set of angles 
-``\{\beta_i, \gamma_i\}``, a mixer ``H_M``, and a cost function ``H_C``, and return the 
+$\{\beta_i, \gamma_i\}$, a mixer $H_M$, and a cost function $H_C$, and return the 
 statevector
 
 ```math
@@ -53,7 +53,7 @@ expectation value of ``H_C`` or ground state probability.
 ## Contributing
 
 Please report any issues, bugs, feature requests, suggestions for improvement, etc., via the
-Github **[issue tracker](https://github.com/lanl/JuliQAOA/issues)**. 
+Github **[issue tracker](https://github.com/lanl/JuliQAOA.jl/issues)**. 
 
 The primary developer of this package is [John Golden](mailto:golden@lanl.gov) 
 ([@johngolden](https://github.com/johngolden)). 
