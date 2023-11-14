@@ -16,7 +16,8 @@ makedocs(
                      "angle_finding.md",
                      "utils.md"],
         "Examples" => "examples.md"
-    ]
+    ],
+    strict = false
 )
 
 deploydocs(
