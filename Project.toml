@@ -1,0 +1,18 @@
+name = "JuliQAOA"
+uuid = "f6a82f60-6483-4cab-9c40-ce255ce481bf"
+authors = ["golden "]
+version = "0.1.0"
+
+[deps]
+Basinhopping = "9e7568c4-705a-47cd-b25f-0976344ae296"
+Combinatorics = "861a8166-3701-5b0c-9a16-15d98fcdc6aa"
+Enzyme = "7da242da-08ed-463a-9acd-ee780be4f1d9"
+Graphs = "86223c79-3864-5bf0-83f7-82e725a168b6"
+JLD2 = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
+LineSearches = "d3d80556-e9d4-5f37-9878-2ab0fcc64255"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+Memoize = "c03570c3-d221-55d1-a50c-7939bbd78826"
+Optim = "429524aa-4258-5aef-a3af-852621145aeb"
+SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
