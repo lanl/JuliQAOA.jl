@@ -1,8 +1,6 @@
 using Documenter
 using JuliQAOA
 
-using Graphs
-
 makedocs(
     modules = [JuliQAOA],
     sitename = "JuliQAOA",
