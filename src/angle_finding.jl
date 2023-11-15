@@ -165,7 +165,7 @@ function guess_angles(old_angles)
 end
 
 """
-    find_angles_bh(p, mixer, obj_vals; max=true, niter=100, file=nothing)
+    find_angles_bh(p, mixer, obj_vals; max=true, niter=100, file=nothing, verbose=true)
 
 Find good angles up for the QAOA defined by `mixer`, `obj_vals` up to `p` rounds.
 
@@ -178,13 +178,14 @@ Optional arguments:
 - `max=false`: determines whether the goal is to minimize or maximize `exp_value`
 - `niter=100`: determines the number of basinhopping iterations
 - `file=nothing`: save the resulting angles and expectation values in a plain text `file`
+- `verbose=true`: print a running log of the angle finding results
 """
 function find_angles_bh(p, mixer::Mixer, obj_vals, measure=obj_vals; kwargs...)
     sv = ones(ComplexF64, mixer.N)/sqrt(mixer.N)
     return find_angles_bh(sv, p, mixer, obj_vals, measure; kwargs...)
 end
 
-function find_angles_bh(sv::Vector, p::Int, mixer::Mixer, obj_vals::AbstractVector, measure::AbstractVector=obj_vals; max=true, niter=100, file=nothing)
+function find_angles_bh(sv::Vector, p::Int, mixer::Mixer, obj_vals::AbstractVector, measure::AbstractVector=obj_vals; max=true, niter=100, file=nothing, verbose=true)
     # add code to load results if file exists
     # add code to check correct file type
     # add code to start skipping p if approximation ratio very close to 1
@@ -203,7 +204,9 @@ function find_angles_bh(sv::Vector, p::Int, mixer::Mixer, obj_vals::AbstractVect
         new_exp_val = (max ? -1 : 1)*minimum(ret)
         push!(angles, new_angles)
         push!(exp_vals, new_exp_val)
-        println("done $i rounds, exp. value = $(round(new_exp_val, digits=5))")
+        if verbose
+            println("done $i rounds, exp. value = $(round(new_exp_val, digits=5))")
+        end
         i += 1
         if !isnothing(file)
             save_angle_finding_results(file, angles, exp_vals)
