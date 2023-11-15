@@ -56,8 +56,7 @@ expectation value of ``H_C`` or ground state probability.
 Please report any issues, bugs, feature requests, suggestions for improvement, etc., via the
 Github **[issue tracker](https://github.com/lanl/JuliQAOA.jl/issues)**. 
 
-The primary developer of this package is [John Golden](mailto:golden@lanl.gov) 
-([@johngolden](https://github.com/johngolden)). 
+The primary developer of this package is John Golden ([email](mailto:golden@lanl.gov), [github](https://github.com/johngolden)). 
 
 ## License
 
