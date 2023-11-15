@@ -77,3 +77,24 @@ Julia. [QOKit](https://github.com/jpmorganchase/QOKit/tree/main) is a Python pac
 uses many of the same basic ideas as JuliQAOA, in particular precomputation and caching of
 the cost function terms. It is currently more geared towards running highly parallelized 
 simulations on large computer clusters.
+
+## Citation
+
+If you find JuliQAOA helpful in your work, please cite
+
+```bibtex
+@inproceedings{10.1145/3624062.3624220, 
+    author = {Golden, John and Baertschi, Andreas and O'Malley, Dan and Pelofske, Elijah and Eidenbenz, Stephan}, 
+    title = {JuliQAOA: Fast, Flexible QAOA Simulation},
+    year = {2023}, 
+    isbn = {9798400707858},
+    publisher = {Association for Computing Machinery}, 
+    address = {New York, NY, USA}, 
+    url = {https://doi.org/10.1145/3624062.3624220}, 
+    doi = {10.1145/3624062.3624220},
+    booktitle = {Proceedings of the SC '23 Workshops of The International Conference on High Performance Computing, Network, Storage, and Analysis}, 
+    pages = {1454–1459}, 
+    numpages = {6}, 
+    location = {Denver, CO, USA}, 
+    series = {SC-W '23} }
+```
