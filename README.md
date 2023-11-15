@@ -4,7 +4,7 @@ A fast, flexible package for simulating the Quantum Alternating Operator Ansatz 
 
 ## Documentation
 
-Please see our full documentation [here](https://lanl.github.io/JuliQAOA.jl/stable/).
+Please see our full documentation [here](https://lanl.github.io/JuliQAOA.jl/dev/).
 
 ## Installation
 
