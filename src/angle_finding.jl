@@ -195,7 +195,7 @@ function find_angles_bh(sv::Vector, p::Int, mixer::Mixer, obj_vals::AbstractVect
                    x0, 
                    BFGS(linesearch=LineSearches.BackTracking()))
 
-    p = 1
+    i = 1
     while i <= p
         x0 = guess_angles(angles)
         ret = basinhopping(opt, x0, BasinhoppingParams(niter=niter))
