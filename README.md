@@ -11,12 +11,13 @@ Please see our full documentation [here](https://lanl.github.io/JuliQAOA.jl/dev/
 The latest stable release of JuliQAOA can be installed using the Julia package manager with
 
 ```julia
-import Pkg
-Pkg.add(url="https://github.com/lanl/JuliQAOA.jl")
+julia> import Pkg
+julia> Pkg.add(url="https://github.com/lanl/JuliQAOA.jl")
 ```
 or 
 ```julia
-] add https://github.com/lanl/JuliQAOA.jl
+julia> # hit the `]` button to enter the package manager
+(@v1.9) pkg> add https://github.com/lanl/JuliQAOA.jl
 ```
 
 ## Usage
