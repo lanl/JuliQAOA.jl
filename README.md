@@ -12,7 +12,7 @@ The latest stable release of JuliQAOA can be installed using the Julia package m
 
 ```julia
 import Pkg
-Pkg.add("https://github.com/lanl/JuliQAOA.jl")
+Pkg.add(url="https://github.com/lanl/JuliQAOA.jl")
 ```
 or 
 ```julia
