@@ -17,7 +17,7 @@ makedocs(
                      "utils.md"],
         "Examples" => "examples.md"
     ],
-    strict = false
+    checkdocs=:none
 )
 
 deploydocs(
