@@ -48,7 +48,7 @@ corresponds to a 2-round QAOA with
 JuliQAOA includes several built-in mixer types, along with the ability to define your own 
 mixer. The standard transverse field mixer on `n` qubits is defined as `mixer_x(n)`, and 
 returns an object of type `JuliQAOA.Mixer{X}` that stores all of the information about the 
-mixer. Mixers are discussed more on the [Mixers](@ref) section. 
+mixer. Mixers are discussed more in the [Mixers](@ref) section. 
 
 ### Cost Function
 Cost functions in JuliQAOA are given in terms of a function which takes as input an array of

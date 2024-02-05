@@ -15,7 +15,7 @@ observables in the same way as [`exp_value`](@ref).
     `grad` does not currently work with `Grover` mixers. For unconstrained
     problems you can use the equivalent `mixer_x(n, 0:n)/2^n`, and for constrained problems
     you can use `N = binom(n,k); mixer_general(dicke_states(n,k), ones(N,N)/N)`. These will
-    both five you correct results, but are slower than the `Grover` implementation.
+    both give you correct results, but are slower than the `Grover` implementation.
 """
 function grad(angles::Vector, mixer::Mixer, obj_vals::AbstractVector, measure::AbstractVector=obj_vals)
     G = similar(angles)
