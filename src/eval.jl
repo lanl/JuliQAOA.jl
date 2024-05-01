@@ -82,6 +82,16 @@ function statevector!(sv, angles, mixer::Mixer{General}, obj_vals)
     end
 end
 
+function statevector!(sv, angles, mixer::Mixer{WarmStart}, obj_vals)
+    p = Int(length(angles)/2)
+    for i in 1:p
+        applyExp!(sv, angles[i+p], obj_vals)
+        applyUs!(sv, mixer.v)
+        applyExp!(sv, angles[i], mixer.d)
+        applyUs!(sv, mixer.vinv)
+    end
+end
+
 
 """
     probabilities(angles, mixer, obj_vals)
@@ -227,24 +237,34 @@ end
 
 
 """
-Apply the Hadamard gate ``H^{\\otimes n} to all qubits in `sv`, modifying `sv` in-place.
+Apply the Hadamard gate `H^{\\otimes n}` to all qubits in `sv`, modifying `sv` in-place.
 """
 function applyH!(sv)
     n = Int(log2(length(sv)))
     @inbounds for i in 1:n
-        applyH!(sv,i)
+        subspace_mul!(sv, i, _HMAT)
     end
 end
 
 """
-Apply the Hadamard gate ``H^{\\otimes n} to the `l`th qubit in `sv`, modifying `sv` 
-in-place.
+Apply the gate `U = Us[i]` to the `i`th qubit in `sv`, modifying `sv` in-place, for all `i`.
+"""
+function applyUs!(sv, Us)
+    n = Int(log2(length(sv)))
+    @inbounds for i in 1:n
+        subspace_mul!(sv, i, Us[i])
+    end
+end
+
+
+"""
+Apply the 2x2 gate `U` to the `l`th qubit in `sv`, modifying `sv` in-place.
 
 Code modified (with permision) from https://blog.rogerluo.dev/2020/03/31/yany/.
 """
-function applyH!(sv, l)
-    U11 = 1/sqrt(2); U12 = 1/sqrt(2);
-    U21 = 1/sqrt(2); U22 = -1/sqrt(2);
+function subspace_mul!(sv, l, U)
+    U11 = U[1,1]; U12 = U[1,2];
+    U21 = U[2,1]; U22 = U[2,2];
     step_1 = 1 << (l - 1)
     step_2 = 1 << l
 

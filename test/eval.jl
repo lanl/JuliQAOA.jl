@@ -64,6 +64,26 @@
 
     end
 
+    @testset "1-round warm start mixer" begin
+        n = 6
+        r = rand(2,2)
+        r = (r + r')/2
+        rs = fill(r, n)
+        m = kron(r,I,I,I,I,I)+kron(I,r,I,I,I,I)+kron(I,I,r,I,I,I)+kron(I,I,I,r,I,I)+kron(I,I,I,I,r,I)+kron(I,I,I,I,I,r) 
+        mixer_target = mixer_general(states(n), m)
+        mixer_test = mixer_warmstart(rs)
+
+        g = erdos_renyi(n, 0.5)
+        obj_vals = [maxcut(g, x) for x in states(n)]
+        angles = rand(2)
+
+        target = exp_value(angles, mixer_target, obj_vals)
+        test = exp_value(angles, mixer_test, obj_vals)
+
+        @test target ≈ test
+
+    end
+
     @testset "3-round multi-X mixer with Sherrington-Kirkpatrick" begin
         n = 6
 

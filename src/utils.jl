@@ -97,3 +97,4 @@ states(n) = (digits(i, base=2, pad=n) for i in 0:2^n-1)
 # Constants
 const _XMAT = sparse([0 1; 1 0])
 const _YMAT = sparse([0 -im; im 0])
+const _HMAT = [1/sqrt(2) 1/sqrt(2); 1/sqrt(2) -1/sqrt(2)]

@@ -36,4 +36,14 @@
         @test full_mixer ≈ target[locs, locs]
     end
 
+    @testset "warm start" begin
+        r = rand(2,2)
+        r = (r + r')/2
+        target = kron(r,I,I,I)+kron(I,r,I,I)+kron(I,I,r,I)+kron(I,I,I,r)
+        rs = fill(r, 4)
+        mixer = mixer_warmstart(rs)
+        full_mixer = kron(mixer.v...)*Diagonal(mixer.d)*kron(mixer.vinv...)
+        @test full_mixer ≈ target
+    end
+
 end

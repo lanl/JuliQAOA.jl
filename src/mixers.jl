@@ -25,6 +25,7 @@ abstract type MixerType end
 struct X <: MixerType end
 struct Grover <: MixerType end
 struct General <: MixerType end
+struct WarmStart <: MixerType end
 
 
 """
@@ -60,9 +61,9 @@ Stores information related to the mixing Hamiltonian ``H_M``. Fields include:
 struct Mixer{T<:MixerType}
     feasible_states
     N::Int
-    v::Union{Nothing, AbstractMatrix}
+    v::Union{Nothing, AbstractMatrix, AbstractVector}
     d::Union{Nothing, AbstractVector}
-    vinv::Union{Nothing, AbstractMatrix}
+    vinv::Union{Nothing, AbstractMatrix, AbstractVector}
     period::Float64
     label::MixerLabel{T}
 end
@@ -303,6 +304,26 @@ function mixer_ring(n::Int, k::Int; file=nothing)
     else
         return load_mixer(file)
     end
+end
+
+"""
+    mixer_warmstart(Rs)
+
+Create a `Mixer` object from a list of single-qubit rotations `Rs`.
+
+For an `n`-qubit QAOA, `Rs` must be of length `n`.
+"""
+function mixer_warmstart(Rs)
+    n = length(Rs)
+    Us = Vector{AbstractMatrix}()
+    d = zeros(Int, 2^n)
+    for i in 1:n
+        v, u = eigen(Rs[i])
+        push!(Us, u)
+        d += kron([ones(2^(i-1)), v, ones(2^(n-i))]...)
+    end
+    label = MixerLabel{WarmStart}(n=n)
+    return Mixer{WarmStart}(states(n), Us, d, [u' for u in Us], label)
 end
 
 """

@@ -9,8 +9,8 @@ export sk_model, spin_energy
 
 include("mixers.jl")
 export Mixer, MixerType
-export X, Grover, General
-export mixer_x, mixer_grover, mixer_clique, mixer_ring, mixer_general
+export X, Grover, General, WarmStart
+export mixer_x, mixer_grover, mixer_clique, mixer_ring, mixer_general, mixer_warmstart
 
 include("eval.jl")
 export statevector, probabilities, exp_value
@@ -22,6 +22,5 @@ export clean_angles, get_operator_period
 
 include("grover.jl")
 export grover_th
-
 
 end # module JuliQAOA

@@ -121,11 +121,15 @@ entries of `eigvals` to integers within `tol`. Returns `Inf` if any of the `eigv
 non-integers.
 """
 function get_operator_period(eigvals; tol=1e-10)
-    int_eigvals = round.(Int, eigvals)
-    if all(abs.(eigvals .- int_eigvals) .< tol)
-        return 2π/gcd(int_eigvals)
-    else
+    if any(x -> typeof(x) <: Complex, eigvals)
         return Inf
+    else
+        int_eigvals = round.(Int, eigvals)
+        if all(abs.(eigvals .- int_eigvals) .< tol)
+            return 2π/gcd(int_eigvals)
+        else
+            return Inf
+        end
     end
 end
 
