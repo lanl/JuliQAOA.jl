@@ -101,7 +101,7 @@ function find_local_maximum(angles::Vector, mixer::Mixer, obj_vals::AbstractVect
 end
 
 function find_local_maximum(sv::Vector, angles::Vector, mixer::Mixer, obj_vals::AbstractVector, measure::AbstractVector=obj_vals)
-    ret = optimize(x->-exp_value(x, mixer, obj_vals, measure), 
+    ret = optimize(x->-exp_value(sv, x, mixer, obj_vals, measure), 
                    (G,x)->grad!(G, sv, x, mixer, obj_vals, measure; flip_sign=true), 
                    angles, 
                    BFGS(linesearch=LineSearches.BackTracking()))
