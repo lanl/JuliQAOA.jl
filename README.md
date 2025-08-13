@@ -2,6 +2,12 @@
 
 A fast, flexible package for simulating the Quantum Alternating Operator Ansatz (QAOA) using the Matrix Product State (MPS).
 
+> [!IMPORTANT]
+> **Migration in Progress:** We are currently migrating the MPS code into this repository.  
+> The codebase will undergo rapid changes until **August 22**, when it is expected to stabilize.  
+> During this period, APIs, features, and file structures may change without notice.
+
+
 ## Notice to Users
 
 We are currently migrating the MPS code into this repository. During this migration period, the codebase will undergo rapid changes and may not be stable.  
