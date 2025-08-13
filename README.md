@@ -2,6 +2,10 @@
 
 A fast, flexible package for simulating the Quantum Alternating Operator Ansatz (QAOA).
 
+## MPS-JuliQAOA
+
+If you are interested in using MPS-JuliQAOA you can find it [here](https://github.com/lanl/JuliQAOA.jl/tree/mps).
+
 ## Documentation
 
 Please see our full documentation [here](https://lanl.github.io/JuliQAOA.jl/dev/).
