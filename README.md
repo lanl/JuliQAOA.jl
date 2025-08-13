@@ -2,6 +2,13 @@
 
 A fast, flexible package for simulating the Quantum Alternating Operator Ansatz (QAOA) using the Matrix Product State (MPS).
 
+## Notice to Users
+
+We are currently migrating the MPS code into this repository. During this migration period, the codebase will undergo rapid changes and may not be stable.  
+
+We expect the codebase to stabilize by **August 22**. Until then, APIs, features, and file structures may change without notice.
+
+
 ## JuliQAOA
 
 If you are interested in just JuliQAOA you can find the main branch [here](https://github.com/lanl/JuliQAOA.jl).
@@ -26,7 +33,7 @@ julia> # hit the `]` button to enter the package manager
 
 ## Usage
 
-The core functionality of JuliQAOA is to take in a set of angles 
+The core functionality of MPS-JuliQAOA is to take in a set of angles 
 ${\beta_i, \gamma_i}$, a mixer $H_M$, and a cost function $H_C$, and return the 
 statevector
 
