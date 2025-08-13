@@ -1,6 +1,6 @@
-# JuliQAOA
+# MPS-JuliQAOA
 
-A fast, flexible package for simulating the Quantum Alternating Operator Ansatz (QAOA).
+A fast, flexible package for simulating the Quantum Alternating Operator Ansatz (QAOA) using the Matrix Product State (MPS).
 
 ## Documentation
 
@@ -12,12 +12,12 @@ The latest stable release of JuliQAOA can be installed using the Julia package m
 
 ```julia
 julia> import Pkg
-julia> Pkg.add(url="https://github.com/lanl/JuliQAOA.jl")
+julia> Pkg.add(url="https://github.com/lanl/JuliQAOA.jl#mps")
 ```
 or 
 ```julia
 julia> # hit the `]` button to enter the package manager
-(@v1.9) pkg> add https://github.com/lanl/JuliQAOA.jl
+(@v1.9) pkg> add https://github.com/lanl/JuliQAOA.jl#mps
 ```
 
 ## Usage
@@ -86,21 +86,16 @@ simulations on large computer clusters.
 
 ## Citation
 
-If you find JuliQAOA helpful in your work, please cite
+If you find MPS-JuliQAOA helpful in your work, please cite
 
 ```bibtex
-@inproceedings{10.1145/3624062.3624220, 
-    author = {Golden, John and Baertschi, Andreas and O'Malley, Dan and Pelofske, Elijah and Eidenbenz, Stephan}, 
-    title = {JuliQAOA: Fast, Flexible QAOA Simulation},
-    year = {2023}, 
-    isbn = {9798400707858},
-    publisher = {Association for Computing Machinery}, 
-    address = {New York, NY, USA}, 
-    url = {https://doi.org/10.1145/3624062.3624220}, 
-    doi = {10.1145/3624062.3624220},
-    booktitle = {Proceedings of the SC '23 Workshops of The International Conference on High Performance Computing, Network, Storage, and Analysis}, 
-    pages = {1454–1459}, 
-    numpages = {6}, 
-    location = {Denver, CO, USA}, 
-    series = {SC-W '23} }
+@misc{feeney2025mpsjuliqaoauserfriendlyscalablempsbased,
+      title={MPS-JuliQAOA: User-friendly, Scalable MPS-based Simulation for Quantum Optimization}, 
+      author={Sean Feeney and Reuben Tate and John Golden and Stephan Eidenbenz},
+      year={2025},
+      eprint={2508.05883},
+      archivePrefix={arXiv},
+      primaryClass={quant-ph},
+      url={https://arxiv.org/abs/2508.05883}, 
+}
 ```
