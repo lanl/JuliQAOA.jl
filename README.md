@@ -2,6 +2,10 @@
 
 A fast, flexible package for simulating the Quantum Alternating Operator Ansatz (QAOA) using the Matrix Product State (MPS).
 
+## JuliQAOA
+
+If you are interested in just JuliQAOA you can find the main branch [here](https://github.com/lanl/JuliQAOA.jl).
+
 ## Documentation
 
 Please see our full documentation [here](https://lanl.github.io/JuliQAOA.jl/dev/).
