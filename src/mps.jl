@@ -2,9 +2,6 @@ using ITensorMPS, ITensors
 
 using Graphs, SimpleWeightedGraphs
 
-
-using BenchmarkTools
-
 #Define operators that may be of use
 ITensors.op(::OpName"ZZZ",::SiteType"Qubit") =
 [1   0   0  0   0  0  0   0;

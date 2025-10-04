@@ -44,4 +44,6 @@ end
     include("grover.jl")
 
     include("angle_finding.jl")
+
+    include("mps.jl")
 end
