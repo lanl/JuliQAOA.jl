@@ -15,6 +15,17 @@ If you are interested in just JuliQAOA you can find the main branch [here](https
 
 Please see our full documentation [here](https://lanl.github.io/JuliQAOA.jl/dev/).
 
+## Activating an Environment
+
+If you are new to Julia it is best practice to create a new environment for each project to avoid precompilation errors associated with version issues or package conflicts. This can be done with 
+
+```julia
+julia> # hit the `]` button to enter the package manager
+(@v1.10) pkg> activate .
+Activating project at `your:\folder\directory\folder_name`
+(folder_name) pkg> activate .
+```
+
 ## Installation
 
 The latest stable release of MPS-JuliQAOA can be installed using the Julia package manager with
