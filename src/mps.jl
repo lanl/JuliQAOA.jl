@@ -183,7 +183,7 @@ function maxcut_graph_to_zinteractions(g; weighted=false)
 
     else
         interactions = ZInteractions[]
-        weights(g)
+        #weights(g)
         for e in edges(g)
             weight = get_weight(g, e)
             x = src(e)
