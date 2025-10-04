@@ -26,15 +26,20 @@ ITensors.op(::OpName"IDT",::SiteType"Qubit") =
 0 0 0 1]
 
 
-ITensors.op(::OpName"X",::SiteType"Qubit") =
-[0 1
-1 0]
 
-ITensors.op(::OpName"Z",::SiteType"Qubit") =
-[1 0
-0 -1]
+"""
+    ZInteractions
 
+Defines a Z-basis interaction term for use in QAOA-style Hamiltonians.
 
+# Fields
+- `qubits::Vector{Int}`: Indices of the qubits involved in this interaction term.
+- `weight::Float64`: Coupling strength (weight) of the interaction.
+
+# Example
+```julia
+ZInteractions([1, 2], 0.5)  # Represents a 0.5 * Z₁ Z₂ interaction
+"""
 struct ZInteractions #PAULIPOLY
     qubits::Vector{Int}     # qubit indices involved in the interaction
     weight::Float64       # coupling weight
@@ -42,6 +47,18 @@ end
 
 ZInteractions(qubits::Vector{Int}) = ZInteractions(qubits, 1.0)
 
+
+"""
+    QAOAProblem
+
+A struct representing a Quantum Approximate Optimization Algorithm (QAOA) problem instance.
+
+# Fields
+- `interactions::Vector{ZInteractions}`: A list of Z-basis interaction terms that define the problem Hamiltonian.
+- `nqubits::Int`: The number of qubits in the system.
+- `sites::Vector{Index}`: The ITensor site indices representing the physical qubits.
+- `psi0::MPS`: The initial quantum state represented as a Matrix Product State (MPS).
+"""
 struct QAOAProblem
     interactions::Vector{ZInteractions}
     nqubits::Int
@@ -49,7 +66,23 @@ struct QAOAProblem
     psi0::MPS
 end
 
+"""
+    QAOAProblem(interactions::Vector{ZInteractions};
+                nqubits::Int = maximum([maximum(i.qubits) for i in interactions]),
+                site_type::String = "Qubit",
+                init_state::String = "+")
 
+Construct a `QAOAProblem` from a given list of Z-basis interaction terms.
+
+# Arguments
+- `interactions::Vector{ZInteractions}`: List of interaction terms in the Z basis, each acting on one or more qubits.
+- `nqubits::Int` (optional): Number of qubits. Defaults to the maximum-indexed qubit found in the interactions.
+- `site_type::String` (optional): Type of the quantum site (e.g., `"Qubit"`). Passed to `siteinds` to define the Hilbert space.
+- `init_state::String` (optional): Initial state for the MPS. Supported values depend on the ITensor library; common choices include `"+"`, `"Z0"`, or `"rand"`.
+
+# Returns
+- An instance of `QAOAProblem` with initialized site indices and MPS state.
+"""
 function QAOAProblem(interactions::Vector{ZInteractions};
                           nqubits::Int = maximum([maximum(i.qubits) for i in interactions]),
                           site_type::String = "Qubit",
