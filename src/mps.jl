@@ -1,8 +1,8 @@
 using ITensorMPS, ITensors
 
-using Graphs, Random, CUDA, SimpleWeightedGraphs
+using Graphs, SimpleWeightedGraphs
 
-using JuliQAOA
+
 using BenchmarkTools
 
 #Define operators that may be of use
