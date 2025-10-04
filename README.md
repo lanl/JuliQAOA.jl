@@ -1,8 +1,7 @@
 # MPS-JuliQAOA
 
 > [!IMPORTANT]
-> **Migration in Progress:** We are currently migrating the MPS code into this repository.  
-> The codebase will undergo rapid changes until **August 22**, when it is expected to stabilize.  
+> **Code updates:** We are currently updating the MPS code in this repository.  
 > During this period, APIs, features, and file structures may change without notice.
 
 

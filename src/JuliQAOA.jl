@@ -23,5 +23,7 @@ export clean_angles, get_operator_period
 include("grover.jl")
 export grover_th
 
-
+include("mps.jl")
+export ZInteractions, QAOAProblem, maxcut_graph_to_zinteractions, maxcut_post_process, mis_graph_to_zinteractions
+export mis_post_process, run_qaoa_mps
 end # module JuliQAOA

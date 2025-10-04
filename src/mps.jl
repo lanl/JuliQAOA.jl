@@ -164,6 +164,10 @@ function maxcut_graph_to_zinteractions(g; weighted=false)
     return interactions
 end
 
+function mis_graph_to_zinteractions()
+    
+end
+
 
 
 function maxcut_post_process(e_val::Float64; interactions=nothing, weighted=false)
