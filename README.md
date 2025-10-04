@@ -28,7 +28,7 @@ Activating project at `your:\folder\directory\folder_name`
 
 ## Installation
 
-The latest stable release of MPS-JuliQAOA can be installed using the Julia package manager with
+After you have activated your environment, the latest stable release of MPS-JuliQAOA can be installed using the Julia package manager with
 
 ```julia
 julia> import Pkg
@@ -37,7 +37,7 @@ julia> Pkg.add(url="https://github.com/lanl/JuliQAOA.jl#mps")
 or 
 ```julia
 julia> # hit the `]` button to enter the package manager
-(@v1.10) pkg> add https://github.com/lanl/JuliQAOA.jl#mps
+(folder_name) pkg> add https://github.com/lanl/JuliQAOA.jl#mps
 ```
 
 ## Usage
