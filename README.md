@@ -17,13 +17,13 @@ Please see our full documentation [here](https://lanl.github.io/JuliQAOA.jl/dev/
 
 ## Activating an Environment
 
-If you are new to Julia it is best practice to create a new environment for each project to avoid precompilation errors associated with version issues or package conflicts. This can be done with 
+If you are new to Julia it is best practice to create a new environment for each project to avoid precompilation errors associated with version issues or package conflicts, and keep dependencies separated. This can be done with 
 
 ```julia
 julia> # hit the `]` button to enter the package manager
 (@v1.10) pkg> activate .
-Activating project at `your:\folder\directory\folder_name`
-(folder_name) pkg> activate .
+Activating project at `your:\folder\directory\project_name`
+(project_name) pkg> activate .
 ```
 
 ## Installation
@@ -37,7 +37,7 @@ julia> Pkg.add(url="https://github.com/lanl/JuliQAOA.jl#mps")
 or 
 ```julia
 julia> # hit the `]` button to enter the package manager
-(folder_name) pkg> add https://github.com/lanl/JuliQAOA.jl#mps
+(project_name) pkg> add https://github.com/lanl/JuliQAOA.jl#mps
 ```
 
 ## Usage
@@ -51,7 +51,45 @@ statevector
 H_M} e^{-i \gamma_1 H_C} |\psi_0\rangle.
 ```
 
-Here is a simple example for a 6-qubit MaxCut problem:
+Here is a simple example for a 3-qubit ZInteraction QAOA Hamiltonian:
+
+```julia
+using JuliQAOA
+using Graphs, SimpleWeightedGraphs
+
+
+#Create your own ZInteractions
+interactions = [
+    ZInteractions([1,2]),
+    ZInteractions([2,3], 2)
+]
+```
+
+Here is another example for which the helper function is used to build the MaxCut Hamiltonian:
+
+```julia
+using JuliQAOA
+using Graphs, SimpleWeightedGraphs
+
+#Custom graph
+g = SimpleWeightedGraph(3)
+
+
+add_edge!(g,1,2,1.0)
+add_edge!(g,2,3,2.0)
+
+interactions = maxcut_graph_to_zinteractions(g, weighted=true)
+```
+
+QAOA Problem:
+
+```julia
+using JuliQAOA, Graphs
+
+#MPS-JuliQAOA code example...
+```
+
+Angle finding example:
 
 ```julia
 using JuliQAOA, Graphs
