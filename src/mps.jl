@@ -200,7 +200,7 @@ end
 Convert a graph `g` into a list of `ZInteractions` suitable for the
 Maximum Independent Set (MIS) Hamiltonian.
 
-Returns both the list of interactions and the constant energy offset `k`.
+Returns the list of interactions and maybe the constant energy offset `k`?
 """
 function mis_graph_to_zinteractions(g; λ=2.0)
     n = nv(g)
@@ -226,7 +226,7 @@ function mis_graph_to_zinteractions(g; λ=2.0)
         push!(interactions, ZInteractions([x, y], k_ij))
     end
 
-    return interactions, k
+    return interactions#, k
 end
 
 
