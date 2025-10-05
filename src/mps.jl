@@ -194,8 +194,39 @@ function maxcut_graph_to_zinteractions(g; weighted=false)
     return interactions
 end
 
-function mis_graph_to_zinteractions()
-    
+"""
+    mis_graph_to_zinteractions(g; λ=2.0)
+
+Convert a graph `g` into a list of `ZInteractions` suitable for the
+Maximum Independent Set (MIS) Hamiltonian.
+
+Returns both the list of interactions and the constant energy offset `k`.
+"""
+function mis_graph_to_zinteractions(g; λ=2.0)
+    n = nv(g)
+    m = ne(g)
+
+    # Constant term
+    k = n/2 - (λ/4) * m
+
+    interactions = ZInteractions[]
+
+    # Single-qubit terms
+    for v in vertices(g)
+        deg_v = degree(g, v)
+        k_i = (λ/4) * deg_v - 0.5
+        push!(interactions, ZInteractions([v], k_i))
+    end
+
+    # Two-qubit terms (edges)
+    for e in edges(g)
+        x = src(e)
+        y = dst(e)
+        k_ij = -λ/4
+        push!(interactions, ZInteractions([x, y], k_ij))
+    end
+
+    return interactions, k
 end
 
 
