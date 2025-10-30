@@ -51,8 +51,24 @@ function grad!(G::Vector, sv::Vector, angles::Vector, mixer::Mixer, obj_vals::Ab
     sv_copy = copy(sv)
     dsv = zeros(ComplexF64, mixer.N)
     G .= 0.0
-    f(a,b) = (flip_sign ? -1 : 1)*exp_value!(a, b, mixer, obj_vals, measure)
-    Enzyme.autodiff(Reverse, f, Duplicated(sv_copy, dsv), Duplicated(angles, G))
+    sign = flip_sign ? -1.0 : 1.0
+
+    # Create a wrapper function that explicitly takes all arguments
+    # This avoids closure-related issues with Enzyme autodiff
+    function exp_value_wrapper(sv_arg, angles_arg, mixer_arg, obj_vals_arg, measure_arg, sign_arg)
+        return sign_arg * exp_value!(sv_arg, angles_arg, mixer_arg, obj_vals_arg, measure_arg)
+    end
+
+    Enzyme.autodiff(
+        Reverse,
+        exp_value_wrapper,
+        Duplicated(sv_copy, dsv),
+        Duplicated(angles, G),
+        Const(mixer),
+        Const(obj_vals),
+        Const(measure),
+        Const(sign)
+    )
 end
 
 """

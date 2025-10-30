@@ -18,10 +18,24 @@ The latest stable release of JuliQAOA can be installed using the Julia package m
 julia> import Pkg
 julia> Pkg.add(url="https://github.com/lanl/JuliQAOA.jl")
 ```
-or 
+or
 ```julia
 julia> # hit the `]` button to enter the package manager
 (@v1.9) pkg> add https://github.com/lanl/JuliQAOA.jl
+```
+
+## Julia Version Compatibility
+
+**Recommended: Julia 1.10 (LTS)** - All features work correctly including gradient-based angle optimization.
+
+**Julia 1.11:** Compatible with all core functionality. Gradient computation works correctly.
+
+**Julia 1.12+:** Core QAOA simulation functionality works, but gradient-based angle optimization (using Enzyme.jl autodiff) is currently limited due to ongoing Enzyme.jl support for Julia 1.12+. See [Enzyme.jl issue #2699](https://github.com/EnzymeAD/Enzyme.jl/issues/2699) for progress updates. You can still use JuliQAOA for statevector simulation, probability calculations, and expectation values. The `grad`, `find_local_minimum`, `find_local_maximum`, and `find_angles_bh` functions may encounter autodiff errors.
+
+If you need gradient-based optimization features, we recommend using Julia 1.10 LTS:
+```bash
+juliaup add lts
+juliaup default lts
 ```
 
 ## Usage
