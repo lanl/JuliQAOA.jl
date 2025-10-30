@@ -51,6 +51,6 @@ find_local_maximum(angles::Vector, mixer::Mixer, obj_vals::AbstractVector, measu
     minimization which avoid this sign confusion.
 
 ```@docs
-find_angles_bh(p, mixer::Mixer, obj_vals, measure=obj_vals; kwargs...)
-grover_th(p, obj_vals; max=true)
+find_angles_bh(p::Int, mixer::Mixer, obj_vals, measure; kwargs...)
+grover_th
 ```
